@@ -151,7 +151,10 @@ const ResultsPage: React.FC<ResultsPageProps> = ({
 
       <div className="mt-12 text-center">
         <button
-          onClick={onRestart}
+          onClick={() => {
+            window.scrollTo(0, 0);
+            onRestart();
+          }}
           className="bg-green-500 text-white px-8 py-3 rounded-lg text-xl font-semibold transition-colors duration-200 hover:bg-green-600"
         >
           Take Quiz Again

@@ -1,12 +1,10 @@
-// app/QuizCard.tsx
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface QuizCardProps {
   question: {
-    title: string;
     question: string;
     answer: string;
     explanation: string;
@@ -35,7 +33,6 @@ const QuizCard: React.FC<QuizCardProps> = ({ question, onNext, direction }) => {
 
   return (
     <motion.div
-      key={question.title}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -51,7 +48,7 @@ const QuizCard: React.FC<QuizCardProps> = ({ question, onNext, direction }) => {
         <div className="absolute w-full h-full backface-hidden">
           <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 h-full flex flex-col justify-between">
             <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
-              {question.title}
+              Question :
             </h2>
             <p
               className="text-center text-xl text-gray-600 dark:text-gray-300 select-text"
@@ -67,11 +64,11 @@ const QuizCard: React.FC<QuizCardProps> = ({ question, onNext, direction }) => {
         <div className="absolute w-full h-full backface-hidden rotate-y-180">
           <div className="bg-blue-50 dark:bg-blue-900 rounded-xl shadow-lg p-8 h-full flex flex-col justify-between">
             <h2 className="text-2xl font-bold mb-4 text-blue-800 dark:text-blue-200">
-              Answer
+              Answer :
             </h2>
-            <div className="flex-grow overflow-y-auto">
+            <div className="flex-grow overflow-y-auto text-center">
               <p
-                className="text-center text-xl text-blue-600 dark:text-blue-300 mb-4 select-text"
+                className="text-xl text-center text-blue-600 dark:text-blue-300 my-4 select-text"
                 onClick={(e) => e.stopPropagation()}
               >
                 {question.answer}
